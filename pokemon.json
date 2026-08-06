@@ -1,0 +1,13 @@
+{
+  "nombre": "Pikachu",
+  "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+  "caracteristicas": {
+    "peso": 6.0,
+    "altura": 0.4,
+    "fuerza": 55,
+    "edad": 5
+  },
+  "habilidades": ["Impactrueno", "Cola férrea"],
+  "tipo": "Electrico",
+  "habitat": "Bosques"
+}
