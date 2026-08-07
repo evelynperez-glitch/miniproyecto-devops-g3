@@ -68,8 +68,7 @@ def create_pokemon():
         },
         "habilidades": data['habilidades'],
         "tipo": data['tipo'],
-        "habitat": data['habitat'],
-        "color": data ['color']
+        "habitat": data['habitat']
     }
     
     pokemons.append(new_pokemon)

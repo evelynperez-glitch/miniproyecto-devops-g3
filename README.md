@@ -44,8 +44,8 @@ La API estará disponible en `http://localhost:5000`
 Retorna una lista con todos los Pokémon registrados.
 
 **Ejemplo:**
-```bash
-curl http://localhost:5000/pokemons
+```powershell
+Invoke-RestMethod -Method Get -Uri "http://localhost:5000/pokemons"
 ```
 
 ### 2. Obtener un Pokémon por ID
@@ -54,8 +54,8 @@ curl http://localhost:5000/pokemons
 Retorna la información de un Pokémon específico.
 
 **Ejemplo:**
-```bash
-curl http://localhost:5000/pokemons/1
+```powershell
+Invoke-RestMethod -Method Get -Uri "http://localhost:5000/pokemons"
 ```
 
 ### 3. Crear un nuevo Pokémon
@@ -69,10 +69,8 @@ $body = Get-Content "pokemon.json" -Raw; Invoke-RestMethod -Uri "http://localhos
 ```
 
 **Ejemplo (curl):**
-```bash
-curl -X POST http://localhost:5000/pokemons \
-  -H "Content-Type: application/json" \
-  -d @pokemon.json
+```powershell
+Invoke-RestMethod -Uri "http://localhost:5000/pokemons/1" -Method Put -Body $body -ContentType "application/json"
 ```
 
 ### 4. Actualizar un Pokémon
@@ -81,15 +79,8 @@ curl -X POST http://localhost:5000/pokemons \
 Actualiza la información de un Pokémon existente. Solo se actualizan los campos proporcionados.
 
 **Ejemplo:**
-```bash
-curl -X PUT http://localhost:5000/pokemons/1 \
-  -H "Content-Type: application/json" \
-  -d '{
-    "nombre": "Pikachu Actualizado",
-    "caracteristicas": {
-      "fuerza": 60
-    }
-  }'
+```powershell
+$body = @{ nombre = "Pikachu Actualizado" caracteristicas = @{ fuerza = 60 } } | ConvertTo-Json -Depth 10 Invoke-RestMethod -Uri "http://localhost:5000/pokemons/1" -Method Put -Body $body -ContentType "application/json"
 ```
 
 ### 5. Eliminar un Pokémon
@@ -98,8 +89,7 @@ curl -X PUT http://localhost:5000/pokemons/1 \
 Elimina un Pokémon de la lista.
 
 **Ejemplo:**
-```bash
-curl -X DELETE http://localhost:5000/pokemons/1
+```powershell
 Invoke-RestMethod -Method Delete -Uri "http://localhost:5000/pokemons/1"
 ```
 
