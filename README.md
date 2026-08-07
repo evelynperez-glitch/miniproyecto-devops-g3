@@ -100,6 +100,7 @@ Elimina un Pokémon de la lista.
 **Ejemplo:**
 ```bash
 curl -X DELETE http://localhost:5000/pokemons/1
+Invoke-RestMethod -Method Delete -Uri "http://localhost:5000/pokemons/1"
 ```
 
 ## Estructura de Datos
