@@ -68,7 +68,7 @@ Crea un nuevo Pokémon con los datos proporcionados en el archivo `pokemon.json`
 $body = Get-Content "pokemon.json" -Raw; Invoke-RestMethod -Uri "http://localhost:5000/pokemons" -Method Post -Body $body -ContentType "application/json"
 ```
 
-**Ejemplo (curl):**
+**Ejemplo (PowerShell):**
 ```powershell
 Invoke-RestMethod -Uri "http://localhost:5000/pokemons/1" -Method Put -Body $body -ContentType "application/json"
 ```
@@ -80,7 +80,7 @@ Actualiza la información de un Pokémon existente. Solo se actualizan los campo
 
 **Ejemplo:**
 ```powershell
-$body = @{ nombre = "Pikachu Actualizado" caracteristicas = @{ fuerza = 60 } } | ConvertTo-Json -Depth 10 Invoke-RestMethod -Uri "http://localhost:5000/pokemons/1" -Method Put -Body $body -ContentType "application/json"
+$body = @{ nombre = "Pikachu Actualizado"; caracteristicas = @{ fuerza = 60 } } | ConvertTo-Json -Depth 10; Invoke-RestMethod -Uri "http://localhost:5000/pokemons/1" -Method Put -Body $body -ContentType "application/json"
 ```
 
 ### 5. Eliminar un Pokémon
